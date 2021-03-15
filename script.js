@@ -36,6 +36,9 @@ var upperNum = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
   "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
   "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"
 ];
+
+var symbols = ["'!", "2", "#", "$", "%", "^", "&", "*", "+,"];
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -53,6 +56,7 @@ function generatePassword() {
   var charLength = prompt("How many characters do you want in your new password?");
   var whichCase = confirm("Do you want uppercase letters?");
   var num = confirm("Do you want numbers in your password?");
+  var sym = confirm("Do you want to include special characters?")
 
  // This creates a local variable for the password instead of getting the DOM object with id="password that I got in my second commit"
  let password = '';
@@ -60,6 +64,7 @@ function generatePassword() {
   console.log(charLength);
   console.log(whichCase);
   console.log(num);
+  console.log(sym)
 
   // if uppercase and numbers are confirmed
   if (num === true && whichCase === true) {
@@ -74,6 +79,20 @@ function generatePassword() {
 
     }
   }
+//if symbol and uppercase are confirmed 
+  if (sym === true && whichCase != true) {
+    for (var i = 0; i < charLength; i++) {
+
+      charPick = symbols[Math.floor(Math.random() * upperNum.length)];
+      console.log(charPick);
+      password = password.toString() + charPick.toString();
+      console.log(password);
+
+
+
+    }
+  }
+
   //if uppercase but no numbers
   else if (num != true && whichCase === true) {
     for (var i = 0; i < charLength; i++) {
