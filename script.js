@@ -54,6 +54,9 @@ function generatePassword() {
   var whichCase = confirm("Do you want uppercase letters?");
   var num = confirm("Do you want numbers in your password?");
 
+ // This creates a local variable for the password instead of getting the DOM object with id="password that I got in my second commit"
+ let password = '';
+
   console.log(charLength);
   console.log(whichCase);
   console.log(num);
